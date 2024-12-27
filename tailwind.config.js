@@ -23,6 +23,15 @@ export default {
         xxxl: "1920px", // Custom breakpoint for larger screens
       },
     },
+    keyframes: {
+      "infinite-scroll": {
+        "0%": { transform: "translateX(0)" },
+        "100%": { transform: "translateX(-100%)" },
+      },
+    },
+    animation: {
+      "infinite-scroll": "infinite-scroll 10s linear infinite", // Adjust duration as needed
+    },
   },
   plugins: [],
 };

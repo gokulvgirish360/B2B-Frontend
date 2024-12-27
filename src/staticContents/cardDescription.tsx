@@ -54,3 +54,25 @@ export const vehicleData=[
   }
   
 ]
+
+import partner1 from "@/assets/partnerslogo/ecofy.png";
+import partner2 from "@/assets/partnerslogo/herofincorp.png";
+import partner3 from "@/assets/partnerslogo/IDFC.png";
+import partner4 from "@/assets/partnerslogo/image.png";
+import partner5 from "@/assets/partnerslogo/tvs.png";
+import partner6 from "@/assets/partnerslogo/image1906.png";
+import partner7 from "@/assets/partnerslogo/image1907.png";
+import partner8 from "@/assets/partnerslogo/kotak.png";
+import partner9 from "@/assets/partnerslogo/tvscredit.png";
+
+export const partners = [
+  partner1,
+  partner2,
+  partner3,
+  partner4,
+  partner5,
+  partner6,
+  partner7,
+  partner8,
+  partner9,
+];

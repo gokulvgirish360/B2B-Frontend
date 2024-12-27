@@ -3,12 +3,11 @@ import bannerVideo from "@/assets/bannervideo.mp4";
 import arrow from "@/assets/icons/arrow.svg";
 import { useEffect } from "react";
 import FeaturesCards from "../components/FeaturesCards";
-import { cardData1, vehicleData } from "../staticContents/cardDescription";
-import ather from "@/assets/ather1.png";
-import charge from "@/assets/icons/charge.svg";
-import battery from "@/assets/icons/battery.svg";
-import { BatteryChargingIcon, BatteryIcon, ChargingIcon } from "../components/svg-assets/asset";
+import { cardData1, partners, vehicleData } from "../staticContents/cardDescription";
 import BikePortfolioCards from "../components/BikePortfolioCards";
+import CopartnersSliding from "../components/OemPartnersScroll";
+import vehicle from "@/assets/vehicles/familyather.webp";
+import { ArrowIcon } from "../components/svg-assets/asset";
 
 const HomePage = () => {
   useEffect(() => {
@@ -45,7 +44,7 @@ const HomePage = () => {
         <video autoPlay muted loop className="w-full h-full object-cover z-0">
           <source src={bannerVideo} type="video/mp4" />
         </video>
-        <div className="absolute sm:bottom-[5%] left-[10%]  text-white w-[80%]  sm:w-[100%]  max-w-full">
+        <div className="absolute bottom-[11%] sm:bottom-[9%] left-[4%]  text-white w-[80%]  sm:w-[100%]  max-w-full">
           <h1 className="text-3xl xs:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold leading-tight sm:leading-[3.5rem] md:leading-[4rem] lg:leading-[5rem]">
             The Future Is Electric, and Your <br /> Business Leads The Change
           </h1>
@@ -92,15 +91,57 @@ const HomePage = () => {
 
       <section className="font-poppins font-light py-[6.5rem] w-[92%] mx-auto">
         <h1 className="text-3xl text-center mb-[4rem]">Our Bikes Portfolio</h1>
-       <BikePortfolioCards vehiclesData={vehicleData}/>
+        <BikePortfolioCards vehiclesData={vehicleData} />
       </section>
 
       <section className="text-center font-poppins">
-        <h1 className="text-2xl font-[500] mb-2">Our Business & OEM Partners</h1>
-        <h3 className="font-[400] mb-10">Building Success Together with Leading Brands</h3>
+        <h1 className="text-2xl font-[500] mb-2">
+          Our Business & OEM Partners
+        </h1>
+        <h3 className="font-[400] ">
+          Building Success Together with Leading Brands
+        </h3>
+        <CopartnersSliding items={partners} />
       </section>
 
+      <section className="font-poppins">
+        <h1 className="text-2xl font-[500] mb-[3rem] text-center ">
+          B2B Success stories
+        </h1>
 
+        <div className="flex flex-col md:flex-row w-full max-w-5xl mx-auto mb-20 bg-[#F8F8F8] rounded-lg p-6">
+          <div className="h-[14rem] min-w-[15rem] mx-auto md:mx-0 overflow-hidden rounded-lg">
+            <img
+              src={vehicle}
+              alt="Vehicle"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="px-0 md:px-8 flex flex-col mt-6 md:mt-0 text-center md:text-left">
+            <h3 className="font-semibold text-[1.12rem] mb-6">
+              Lower Costs, Faster Deliveries, and a Greener Brand
+            </h3>
+            <p className="font-normal text-[#6C6C6C] text-sm leading-7 mb-auto">
+              Switching to Autovert’s EV leasing cut our costs by 30% and
+              boosted client trust. Maintenance headaches are gone, and we’re
+              saving on fuel every day. Our fleet now runs smoothly, deliveries
+              are faster, and our brand stands out as a green leader. Autovert
+              didn’t just give us EVs—they gave us a smarter way to grow.
+            </p>
+            <div className="flex items-center justify-between mt-6">
+              <span className="font-medium text-sm">GreenFleet Logistics</span>
+              <div className="flex gap-4">
+                <div className="border rounded-full p-3 w-10 h-10 flex items-center justify-center border-gray-300 shadow hover:bg-gray-100 transition-all">
+                  <ArrowIcon direction="left" />
+                </div>
+                <div className="border rounded-full p-3 w-10 h-10 flex items-center justify-center border-gray-300 shadow hover:bg-gray-100 transition-all">
+                  <ArrowIcon direction="right" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
