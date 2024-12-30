@@ -1,15 +1,20 @@
 import Navbar from "../components/Navbar";
 import bannerVideo from "@/assets/bannervideo.mp4";
 import arrow from "@/assets/icons/arrow.svg";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import FeaturesCards from "../components/FeaturesCards";
 import { cardData1, partners, vehicleData } from "../staticContents/cardDescription";
 import BikePortfolioCards from "../components/BikePortfolioCards";
 import CopartnersSliding from "../components/OemPartnersScroll";
 import vehicle from "@/assets/vehicles/familyather.webp";
 import { ArrowIcon } from "../components/svg-assets/asset";
+import SideDrawer from "../components/SideDrawer";
+import Footer from "../components/Footer";
+import { BiMessageDetail } from "react-icons/bi";
 
 const HomePage = () => {
+
+  const [showDrawer,setShowDrawer]=useState(false)
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -38,9 +43,17 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-x-hidden relative">
+      {showDrawer && <SideDrawer setDrawerVisibility={setShowDrawer} />}
+      <div className="fixed bottom-6 right-4 bg-[#056C50] flex justify-center sm:hidden items-center h-[3.5rem] w-[3.5rem] rounded-lg z-[100] shadow-lg">
+        <BiMessageDetail className="h-6 w-6 text-white " />
+      </div>
+
       <section className="sm:h-[97vh] h-[94vh] w-full relative">
-        <Navbar />
+        <Navbar
+          drawerVisibility={showDrawer}
+          setDrawerVisibility={setShowDrawer}
+        />
         <video autoPlay muted loop className="w-full h-full object-cover z-0">
           <source src={bannerVideo} type="video/mp4" />
         </video>
@@ -142,6 +155,7 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };

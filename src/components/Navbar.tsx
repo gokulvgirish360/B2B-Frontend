@@ -1,7 +1,12 @@
 import AutovertLogo from "@/assets/icons/autovert.svg";
 import sideMenuBtn from "@/assets/icons/menuBtn.svg";
 
-const Navbar = () => {
+const Navbar = ({
+  drawerVisibility,
+  setDrawerVisibility,
+}: {
+  drawerVisibility:boolean,setDrawerVisibility: (state:boolean) => void;
+}) => {
   return (
     <header className="bg-[rgba(255,255,255,0.1)] fixed text-white h-[4.6rem] w-full flex justify-between items-center px-4 sm:px-[4%] z-10">
       <img
@@ -14,6 +19,7 @@ const Navbar = () => {
           Get in touch
         </button>
         <img
+          onClick={() => setDrawerVisibility(!drawerVisibility)}
           className="w-9 h-9  fill-black"
           src={sideMenuBtn}
           alt="menubtn"
